@@ -17,10 +17,20 @@
         let X = A + B;
         console.log(X);
       }
-      myFunction1(1, 2); //3
-      myFunction1(a, b); //30
-      myFunction1(a); //NaN
-      myFunction1(a, b, c); //30
+      //   myFunction1(1, 2); //3
+      //   myFunction1(a, b); //30
+      //   myFunction1(a); //NaN
+      //   myFunction1(a, b, c); //30
+
+      function myFunctio2(a, b, ...Y) {
+        A = a;
+        B = b;
+        C = Y[0];
+        D = Y[1];
+        Z = A + B + C + D;
+        console.log(Z);
+      }
+      myFunctio2(1, 2, 3, 4); //10
     </script>
   </body>
 </html>
