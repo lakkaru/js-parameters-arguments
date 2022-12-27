@@ -22,15 +22,24 @@
       //   myFunction1(a); //NaN
       //   myFunction1(a, b, c); //30
 
-      function myFunctio2(a, b, ...Y) {
-        A = a;
-        B = b;
-        C = Y[0];
-        D = Y[1];
+      function myFunction2(A, B, ...Y) {
+        let C = Y[0];
+        let D = Y[1];
+        let Z = A + B + C + D;
+        console.log(Z);
+      }
+      myFunction2(1, 2, 3, 4); //10
+      
+      function myFunction3() {
+        // console.log(arguments);
+        A = arguments[0];
+        B = arguments[1];
+        C = arguments[2];
+        D = arguments[3];
         Z = A + B + C + D;
         console.log(Z);
       }
-      myFunctio2(1, 2, 3, 4); //10
+      myFunction3(1, 2, 3, 4); //10
     </script>
   </body>
 </html>
