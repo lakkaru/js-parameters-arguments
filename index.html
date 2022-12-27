@@ -5,41 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS parameters and arguments</title>
+
+    <style>
+      .input {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-evenly;
+      }
+    </style>
   </head>
   <body>
+    <div class="input">
+      <div>
+        <label for="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          onkeyup="nameFunction(document.getElementById('name').value)"
+        />
+      </div>
+      <div>
+        <label for="cource">Preffered cource</label>
+        <select name="cource" id="cource" onchange="courceFunction()">
+          <option value="Java">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="ReactJS">ReactJS</option>
+        </select>
+      </div>
+    </div>
+    <hr />
+    <div><span id="message">Hi</span></div>
     <script>
-      let a = 10,
-        b = 20,
-        c = 30,
-        d = 40;
-
-      function myFunction1(A, B) {
-        let X = A + B;
-        console.log(X);
+      //disabling cource without name
+      if (document.getElementById("name").value == "") {
+        document.getElementById("cource").disabled = true;
       }
-      //   myFunction1(1, 2); //3
-      //   myFunction1(a, b); //30
-      //   myFunction1(a); //NaN
-      //   myFunction1(a, b, c); //30
-
-      function myFunction2(A, B, ...Y) {
-        let C = Y[0];
-        let D = Y[1];
-        let Z = A + B + C + D;
-        console.log(Z);
+      function nameFunction(name) {
+        //getting use name and displaying
+        document.getElementById("cource").disabled = false;
+        document.getElementById("message").innerHTML = "Hi " + name + ", ";
       }
-      myFunction2(1, 2, 3, 4); //10
-      
-      function myFunction3() {
-        // console.log(arguments);
-        A = arguments[0];
-        B = arguments[1];
-        C = arguments[2];
-        D = arguments[3];
-        Z = A + B + C + D;
-        console.log(Z);
+      function courceFunction() {
+        //getting preffered cource and displaying
+        let name = document.getElementById("name").value;
+        let cource = document.getElementById("cource").value;
+        document.getElementById("message").innerHTML =
+          "Hi " + name + ", Do you like to follow " + cource + " with us?";
       }
-      myFunction3(1, 2, 3, 4); //10
     </script>
   </body>
 </html>
